@@ -1,0 +1,115 @@
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<h1>Please fill this form</h1>
+
+<!-- Main Input For Receiving Query to our ML -->
+<form action="{{ url_for('predict') }}" method="post">
+  <table>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+    </tr>
+    <tr>
+      <td><h6>Are you married?</h6></td>
+      <td>
+        <select name="married" required="required">
+          <option value="2">Yes</option>
+          <option value="1">No</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><h6>Number of dependents on you</h6></td>
+      <td><input type="text" name="dependents" placeholder="Dependents" required="required" /></td>
+    </tr>
+    <tr>
+      <td><h6>Education</h6></td>
+      <td>
+        <select name="education" required="required">
+          <option value="2">Graduated</option>
+          <option value="1">Not Graduated</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><h6>Are you self-employed?</h6></td>
+      <td>
+        <select name="self_employed" required="required">
+          <option value="2">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><h6>Sum of Applicant Income and Coapplicant Income</h6></td>
+      <td><input type="text" name="applicantincome" placeholder="Sum of Applicant Income and Coapplicant Income" required="required" /></td>
+    </tr>
+    <tr>
+      <td><h6>Enter the loan amount you need</h6></td>
+      <td><input type="text" name="loanamount" placeholder="Loan Amount" required="required" /></td>
+    </tr>
+    <tr>
+      <td><h6>Loan Amount Term</h6></td>
+      <td><input type="text" name="loan_amount_term" placeholder="Loan Amount Term" required="required" /></td>
+    </tr>
+    <tr>
+      <td><h6>Credit History</h6></td>
+      <td>
+        <select name="credit_history" required="required">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><h6>Property Area</h6></td>
+      <td>
+        <select name="property_area" required="required">
+          <option value="1">Rural</option>
+          <option value="2">Urban</option>
+          <option value="3">Semi-Urban</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+</form>
